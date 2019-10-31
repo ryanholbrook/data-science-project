@@ -1,28 +1,29 @@
 
 # Data Science Project Overview
 
+
 # Table of Contents
 
-1.  [Determine Objectives](#org20f1889)
-2.  [Collect Data](#orgc863def)
-    1.  [Experimental Design](#org14cf39a)
-3.  [Specify Data](#orgcdc50f7)
-    1.  [Determine Types and Representation](#org9e3eb88)
-    2.  [Determine Roles](#org020628b)
-4.  [Correct Data](#orga580069)
-    1.  [Determine Validation Rules](#orge957fcc)
-    2.  [String Correction](#org64ed03a)
-    3.  [Numeric Correction](#orgd3ccf71)
-    4.  [Missing Correction](#orgdfa030a)
-5.  [Model Validation Scheme](#orgf6f0005)
-6.  [Prior Expectations](#orgf074cf4)
-7.  [Feature Engineering and Model Selection](#orgd9f0672)
-8.  [Training and Tuning](#orgc715cad)
-9.  [Model Evaluation](#org5ffe0f2)
-10. [Model Deployment and Reporting](#orgde763c9)
+1.  [Determine Objectives](#org77f8fa9)
+2.  [Collect Data](#org517c0f3)
+    1.  [Experimental Design](#orge516021)
+3.  [Specify Data](#orgcde0099)
+    1.  [Determine Types and Representation](#org3932fa5)
+    2.  [Determine Roles](#org10fb7fb)
+4.  [Correct Data](#org38ce769)
+    1.  [Determine Validation Rules](#orgb00d064)
+    2.  [String Correction](#org4f01832)
+    3.  [Numeric Correction](#org69ac40d)
+    4.  [Missing Correction](#orgc68dd25)
+5.  [Model Validation Scheme](#org80074e8)
+6.  [Prior Expectations](#org74c3745)
+7.  [Feature Engineering and Model Selection](#orgdde3513)
+8.  [Training and Tuning](#orgb545f0f)
+9.  [Model Evaluation](#org61b63c9)
+10. [Model Deployment and Reporting](#orgcb8e20d)
 
 
-<a id="org20f1889"></a>
+<a id="org77f8fa9"></a>
 
 # Determine Objectives
 
@@ -33,38 +34,38 @@ Define success. How do you know you're done?
 Understand utilities. What are the costs of erroneous predictions? What are the benefits of correct predictions?
 
 
-<a id="orgc863def"></a>
+<a id="org517c0f3"></a>
 
 # Collect Data
 
 Collect the data in raw form, if not provided.
 
 
-<a id="org14cf39a"></a>
+<a id="orge516021"></a>
 
 ## Experimental Design
 
 
-<a id="orgcdc50f7"></a>
+<a id="orgcde0099"></a>
 
 # Specify Data
 
 Determine what properties the data should have.
 
 
-<a id="org9e3eb88"></a>
+<a id="org3932fa5"></a>
 
 ## Determine Types and Representation
 
 See [Statistical Data Type](https://en.wikipedia.org/wiki/Statistical_data_type) [Wikipedia]
 
-Binary - Integer or Logical
-Nominal - Factor
-Ordinal - Ordered Factor
-Continuous - Float
-Linear Temporal - Date
-Cyclic Temporal - Factor
-Text - String
+-   Binary: Integer or Logical
+-   Nominal: Factor
+-   Ordinal: Ordered Factor
+-   Continuous: Float
+-   Linear Temporal: Date
+-   Cyclic Temporal: Factor
+-   Text: String
 
 Data Frame
 Time Series
@@ -74,7 +75,7 @@ Non-relational Database
 Graph
 
 
-<a id="org020628b"></a>
+<a id="org10fb7fb"></a>
 
 ## Determine Roles
 
@@ -84,7 +85,7 @@ Identity
 Information
 
 
-<a id="orga580069"></a>
+<a id="org38ce769"></a>
 
 # Correct Data
 
@@ -97,29 +98,29 @@ Correct observed data before imputing missing data.
 see: [de Jonge, E., & van der Loo, M. *Statistical Data Cleaning with Applications in R.*](https://www.wiley.com/en-us/Statistical+Data+Cleaning+with+Applications+in+R-p-9781118897157) and [`validate`](https://github.com/data-cleaning) [Github]
 
 
-<a id="orge957fcc"></a>
+<a id="orgb00d064"></a>
 
 ## Determine Validation Rules
 
 Specify what properties the data must have to be "clean". Domain knowledge is essential here.
 
 
-<a id="org64ed03a"></a>
+<a id="org4f01832"></a>
 
 ## String Correction
 
 
-<a id="orgd3ccf71"></a>
+<a id="org69ac40d"></a>
 
 ## Numeric Correction
 
 
-<a id="orgdfa030a"></a>
+<a id="orgc68dd25"></a>
 
 ## Missing Correction
 
 
-<a id="orgf6f0005"></a>
+<a id="org80074e8"></a>
 
 # Model Validation Scheme
 
@@ -128,7 +129,7 @@ Decide on validation procedures (for feature engineering, performance, tuning, b
 see: [Raschka, S. *Evaluation, Model Selection, and Algorithm Selection in Machine Learning.*](https://arxiv.org/abs/1811.12808) [arXiv]
 
 
-<a id="orgf074cf4"></a>
+<a id="org74c3745"></a>
 
 # Prior Expectations
 
@@ -142,7 +143,7 @@ Look at simple baselines.
 see: [Setting Expectations](http://www.win-vector.com/blog/2012/04/setting-expectations-in-data-science-projects/) (Win-Vector blog)
 
 
-<a id="orgd9f0672"></a>
+<a id="orgdde3513"></a>
 
 # Feature Engineering and Model Selection
 
@@ -187,7 +188,7 @@ When you are transforming the data it is important to ask: Is the transformation
 see: [Khun, M., Johnson, K. *Feature Engineering and Selection*](https://bookdown.org/max/FES/) [book]
 
 
-<a id="orgc715cad"></a>
+<a id="orgb545f0f"></a>
 
 # Training and Tuning
 
@@ -196,7 +197,7 @@ Consider model aggregation methods: bagging, model averaging, ensembles, SuperLe
 If a particular statistic is of interest, consider Targeted Learning.
 
 
-<a id="org5ffe0f2"></a>
+<a id="org61b63c9"></a>
 
 # Model Evaluation
 
@@ -209,7 +210,9 @@ Compare a parametric model to some non-parametric equivalent. If the parametric 
 see: [Shalizi, C. R. *Data Analysis from an Elementary Point of View.*](https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/) [book]
 
 
-<a id="orgde763c9"></a>
+<a id="orgcb8e20d"></a>
 
 # Model Deployment and Reporting
+
+
 
