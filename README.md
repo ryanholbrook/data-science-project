@@ -1,31 +1,31 @@
 
-# Data Science Project Overview
-
-
 # Table of Contents
 
-1.  [Determine Objectives](#org77f8fa9)
-2.  [Collect Data](#org517c0f3)
-    1.  [Experimental Design](#orge516021)
-3.  [Specify Data](#orgcde0099)
-    1.  [Determine Types and Representation](#org3932fa5)
-    2.  [Determine Roles](#org10fb7fb)
-4.  [Correct Data](#org38ce769)
-    1.  [Determine Validation Rules](#orgb00d064)
-    2.  [String Correction](#org4f01832)
-    3.  [Numeric Correction](#org69ac40d)
-    4.  [Missing Correction](#orgc68dd25)
-5.  [Model Validation Scheme](#org80074e8)
-6.  [Prior Expectations](#org74c3745)
-7.  [Feature Engineering and Model Selection](#orgdde3513)
-8.  [Training and Tuning](#orgb545f0f)
-9.  [Model Evaluation](#org61b63c9)
-10. [Model Deployment and Reporting](#orgcb8e20d)
+1.  [Objectives](#org7fcfba1)
+2.  [Data Collection](#org04e3d52)
+    1.  [Experimental Design](#org5de370d)
+3.  [Data Specification](#org3e8354f)
+    1.  [Determine Statistical Type](#org64ac458)
+    2.  [Determine Roles](#org8566a6c)
+    3.  [Determine Validation Rules](#org3901367)
+4.  [Data Correction](#org896f512)
+    1.  [String Correction](#orge1e5960)
+    2.  [Numeric Correction](#org9e7b8bc)
+    3.  [Missing Correction](#org321df15)
+5.  [Determine Model Validation Scheme](#orga5fda1b)
+6.  [Establish Baseline Performance and Evaluation Metrics](#orgf7e4e4b)
+7.  [Feature Engineering and Model Selection](#org18a192e)
+8.  [Training and Tuning](#orgc19f69d)
+9.  [Model Evaluation](#orgbd05d90)
+10. [Model Interpretation](#org3ee73ed)
+11. [Model Deployment and Reporting](#orgf246770)
+12. [References](#orgf29ac59)
 
 
-<a id="org77f8fa9"></a>
 
-# Determine Objectives
+<a id="org7fcfba1"></a>
+
+# Objectives
 
 Determine Constraints. Do you want predictions? Does the model need to be interpretable? What resources do you have?
 
@@ -34,30 +34,32 @@ Define success. How do you know you're done?
 Understand utilities. What are the costs of erroneous predictions? What are the benefits of correct predictions?
 
 
-<a id="org517c0f3"></a>
+<a id="org04e3d52"></a>
 
-# Collect Data
+# Data Collection
 
 Collect the data in raw form, if not provided.
 
 
-<a id="orge516021"></a>
+<a id="org5de370d"></a>
 
 ## Experimental Design
 
+Statistically optimal ways of collecting data. The mantra is: *To get the most from your experiments, reduce the variance.* (Good 2005)
 
-<a id="orgcde0099"></a>
+Consider active learning if you need to label data.
 
-# Specify Data
+
+<a id="org3e8354f"></a>
+
+# Data Specification
 
 Determine what properties the data should have.
 
 
-<a id="org3932fa5"></a>
+<a id="org64ac458"></a>
 
-## Determine Types and Representation
-
-See [Statistical Data Type](https://en.wikipedia.org/wiki/Statistical_data_type) [Wikipedia]
+## Determine Statistical Type
 
 -   Binary: Integer or Logical
 -   Nominal: Factor
@@ -67,27 +69,29 @@ See [Statistical Data Type](https://en.wikipedia.org/wiki/Statistical_data_type)
 -   Cyclic Temporal: Factor
 -   Text: String
 
-Data Frame
-Time Series
-Matrix
-Relational Database
-Non-relational Database
-Graph
+See [Statistical Data Type](https://en.wikipedia.org/wiki/Statistical_data_type) [Wikipedia]
 
 
-<a id="org10fb7fb"></a>
+<a id="org8566a6c"></a>
 
 ## Determine Roles
 
-Feature
-Response
-Identity
-Information
+-   Feature
+-   Response
+-   Identity
+-   Information
 
 
-<a id="org38ce769"></a>
+<a id="org3901367"></a>
 
-# Correct Data
+## Determine Validation Rules
+
+Specify what properties the data must have to be "clean". Domain knowledge is essential here.
+
+
+<a id="org896f512"></a>
+
+# Data Correction
 
 Decide on how to correct erroneous data. Understanding why the data is erroneous is important. Visualization tools can help.
 
@@ -95,55 +99,45 @@ Many errors can be corrected through an automatic application of rules. For othe
 
 Correct observed data before imputing missing data.
 
-see: [de Jonge, E., & van der Loo, M. *Statistical Data Cleaning with Applications in R.*](https://www.wiley.com/en-us/Statistical+Data+Cleaning+with+Applications+in+R-p-9781118897157) and [`validate`](https://github.com/data-cleaning) [Github]
 
-
-<a id="orgb00d064"></a>
-
-## Determine Validation Rules
-
-Specify what properties the data must have to be "clean". Domain knowledge is essential here.
-
-
-<a id="org4f01832"></a>
+<a id="orge1e5960"></a>
 
 ## String Correction
 
 
-<a id="org69ac40d"></a>
+<a id="org9e7b8bc"></a>
 
 ## Numeric Correction
 
 
-<a id="orgc68dd25"></a>
+<a id="org321df15"></a>
 
 ## Missing Correction
 
 
-<a id="org80074e8"></a>
+<a id="orga5fda1b"></a>
 
-# Model Validation Scheme
+# Determine Model Validation Scheme
 
 Decide on validation procedures (for feature engineering, performance, tuning, benchmarking) and make data splits.
 
-see: [Raschka, S. *Evaluation, Model Selection, and Algorithm Selection in Machine Learning.*](https://arxiv.org/abs/1811.12808) [arXiv]
 
+<a id="orgf7e4e4b"></a>
 
-<a id="org74c3745"></a>
+# Establish Baseline Performance and Evaluation Metrics
 
-# Prior Expectations
-
-Look at simple baselines.
-
--   Simple expectation \(E[Y]\): featureless lower bound
+-   Null (Featureless) Model: Simple expectation \(E[Y]\) for RMSE.
+-   Best Single Variable Model: \(max_{X_i \in X} E[Y|X_i=x_i]\)
 -   Naive Bayes: naive lower bound
 -   Current Performance: practical lower bound
 -   Bayes Error Estimates: the upper bound of the data set (try estimating by resampling kNN)
 
-see: [Setting Expectations](http://www.win-vector.com/blog/2012/04/setting-expectations-in-data-science-projects/) (Win-Vector blog)
+see: 
+
+-   [Setting Expectations](http://www.win-vector.com/blog/2012/04/setting-expectations-in-data-science-projects/) [Win-Vector blog]
 
 
-<a id="orgdde3513"></a>
+<a id="org18a192e"></a>
 
 # Feature Engineering and Model Selection
 
@@ -179,16 +173,14 @@ Data Transforms:
 
 Feature Selection:
 
--   filters
--   wrappers
--   embedded
+-   Filters
+-   Wrappers
+-   Embedded
 
-When you are transforming the data it is important to ask: Is the transformation data-dependent? Does it depend on the features? Does it depend on the response? If so, it ought to be part of a validation procedure. Independent transformations can be applied at will, however. This is important to avoid overfitting.
-
-see: [Khun, M., Johnson, K. *Feature Engineering and Selection*](https://bookdown.org/max/FES/) [book]
+When you are transforming the data it is important to ask: Is the transformation data-dependent? Does it depend on the features? Does it depend on the response? If so, it ought to be part of a validation procedure. This is important to avoid overfitting. Independent transformations can be applied at will, however.
 
 
-<a id="orgb545f0f"></a>
+<a id="orgc19f69d"></a>
 
 # Training and Tuning
 
@@ -197,22 +189,89 @@ Consider model aggregation methods: bagging, model averaging, ensembles, SuperLe
 If a particular statistic is of interest, consider Targeted Learning.
 
 
-<a id="org61b63c9"></a>
+<a id="orgbd05d90"></a>
 
 # Model Evaluation
 
-Compare models through benchmarking. 
+-   Residuals
 
-Examine the residuals. This can help you to determine whether your model is well-specified. You want the residuals to look like "white noise". Look at QQ-plots or wormplots.
+-   Permutation Tests: Compare to the same model fit on a randomised response. Can help detect overfitting.
+
+-   Benchmarking
+
+Examining the residuals is very important This can help you to determine whether your model is well-specified. You want the residuals to look like "white noise". Look at QQ-plots or wormplots.
 
 Compare a parametric model to some non-parametric equivalent. If the parametric model is well-specified, it should outperform the non-parametric model. This is because a parametric model should be able to "leverage its assumptions."
 
-see: [Shalizi, C. R. *Data Analysis from an Elementary Point of View.*](https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/) [book]
+see: 
+
+-   [Is Your Model Going to Work?](http://www.win-vector.com/blog/2015/09/isyourmodelgoingtowork/) [Win-Vector blog]
 
 
-<a id="orgcb8e20d"></a>
+<a id="org3ee73ed"></a>
+
+# Model Interpretation
+
+
+<a id="orgf246770"></a>
 
 # Model Deployment and Reporting
 
 
+<a id="orgf29ac59"></a>
+
+# References
+
+On process, see:
+
+-   [Khun, M. *Applied Predictive Modeling*](http://appliedpredictivemodeling.com/) [book]
+-   [Mount, J., Zumel, N. *Practical Data Science with R*](http://www.win-vector.com/blog/practical-data-science-with-r/) [book]
+-   [DrWhy. *Model Development Process*](https://github.com/ModelOriented/DrWhy/blob/master/images/ModelDevelopmentProcess.pdf) [GitHub]
+
+On data validation, see:
+
+-   [de Jonge, E., & van der Loo, M. *Statistical Data Cleaning with Applications in R.*](https://www.wiley.com/en-us/Statistical+Data+Cleaning+with+Applications+in+R-p-9781118897157) [book] and the [\`validate\`](https://github.com/data-cleaning) R package [Github]
+
+On models generally, see:
+
+-   [Shalizi, C. R. *Data Analysis from an Elementary Point of View.*](https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/) [free book]
+-   [Hastie, T., Tibshirani, R., & Friedman, J., *Elements of Statistical Learning.*](https://web.stanford.edu/~hastie/ElemStatLearn/) [free book]
+-   [Efron, B., & Hastie, T. *Computer Age Statistical Inference.*](http://web.stanford.edu/~hastie/CASI/) [free book]
+-   [Murphy, K. P. *Machine learning: a probabilistic perspective.*](https://www.cs.ubc.ca/~murphyk/MLbook/) [book]
+-   [Berk, R. *Statistical learning from a regression perspective.*](https://www.springer.com/gp/book/9780387775005) [book]
+-   [Mohri, M., Rostamizadeh, A., & Talwalkar, A., *Foundations of machine learning.*](https://cs.nyu.edu/~mohri/mlbook/) [free book]
+
+On deep learning, see:
+
+-   [Goodfellow, I., Bengio, Y., & Courville, A. *Deep Learning.*](http://www.deeplearningbook.org/) [free book]
+
+On time series, see:
+
+-   [Hamilton, J. D., *Time Series Analysis.*](https://press.princeton.edu/books/hardcover/9780691042893/time-series-analysis) [book]
+-   [Sanchez, J., *Hidden Markov Models for Time Series - An Introduction Using R.*](http://dx.doi.org/10.18637/jss.v043.b04) [book]
+
+On feature engineering, see:
+
+-   [Khun, M., Johnson, K. *Feature Engineering and Selection*](https://bookdown.org/max/FES/) [free book]
+-   [Koch, I. *Analysis of Multivariate and High-Dimensional Data.*](https://www.cambridge.org/core/books/analysis-of-multivariate-and-highdimensional-data/2BF8DE949E18E3A68001976784087816) [book]
+-   [Gifi, A., *Nonlinear Multivariate Analysis.*](https://www.wiley.com/en-us/Nonlinear+Multivariate+Analysis-p-9780471926207) [book] and an updated (but incomplete) version [de Leeuw, J., Mair, P., & Groenen, P., *Multivariate Analysis with Optimal Scaling.*](https://bookdown.org/jandeleeuw6/gifi/) [book] and the [\`gifi\`](https://cran.r-project.org/web/packages/Gifi/index.html) [CRAN] R package. PCA style optimal scaling.
+-   [Harrell, F. E., Regression modeling strategies](http://biostat.mc.vanderbilt.edu/wiki/Main/RmS) [book] and the [\`acepack\`](https://cran.r-project.org/web/packages/acepack/index.html) [CRAN] R package. Optimal scaling for regression models.
+
+On validation and resampling, see:
+
+-   [Raschka, S. *Evaluation, Model Selection, and Algorithm Selection in Machine Learning.*](https://arxiv.org/abs/1811.12808) [arXiv]
+-   [Efron, B., & Tibshirani, R., *An introduction to the bootstrap.*](https://www.crcpress.com/An-Introduction-to-the-Bootstrap/Efron-Tibshirani/p/book/9780412042317) [book]
+-   [Chernick, M. R., *Bootstrap methods: a guide for practitioners and researchers.*](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470192573) [book]
+-   [Good, P. I., *Permutation, parametric and bootstrap tests of hypotheses.*](https://www.springer.com/gp/book/9781475723465) [book]
+-   [Lahiri, S. N., *Resampling methods for dependent data.*](https://www.springer.com/gp/book/9780387009285) [book]
+
+On model interpretation, see:
+
+-   [Biecek, P. and Burzykowski, T., *Predictive Models: Explore, Explain, and Debug.*](https://pbiecek.github.io/PM_VEE/) [book] and [DrWhy](https://github.com/ModelOriented/DrWhy) [GitHub] R package
+
+On statistics and mathematics, see:
+
+-   [Casella, G., & Berger, R. L., *Statistical Inference.*](https://books.google.com/books/about/Statistical_Inference.html?id=xA7vAAAAMAAJ) [book]
+-   [Gallier, J., & Quaintance, J., *Algebra, Topology, Diﬀerential Calculus, and Optimization Theory For Computer Science and Machine Learning.*](https://www.cis.upenn.edu/~jean/gbooks/home.html) [free book]
+-   [Pollard, D., *A user's guide to measure theoretic probability.*](https://www.cambridge.org/core/books/users-guide-to-measure-theoretic-probability/A257FE6572A9142FE3B811FFF3FD0171) [book]
 
