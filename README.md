@@ -1,35 +1,36 @@
 
 # Table of Contents
 
-1.  [Process](#orga84d9db)
-2.  [Objectives](#org01d91e3)
-3.  [Data Collection](#orgb8f9904)
-    1.  [Experimental Design](#orgc7a180e)
-4.  [Data Specification](#orgec6575a)
-    1.  [Determine Statistical Type](#org091b506)
-    2.  [Determine Roles](#orgf087bca)
-    3.  [Determine Validation Rules](#org02aa625)
-5.  [Data Correction](#orga9f8c95)
-    1.  [String Correction](#org939dca6)
-    2.  [Numeric Correction](#orgfba8b3a)
-    3.  [Missing Correction](#org42b5553)
-6.  [Determine Model Validation Scheme](#orgf073b3d)
-7.  [Establish Baseline Performance and Evaluation Metrics](#org750f50a)
-8.  [Feature Engineering and Model Selection](#orgbe482f7)
-9.  [Training and Tuning](#orgf51ed2c)
-10. [Model Evaluation](#org5c8369b)
-11. [Model Interpretation](#org97f16bd)
-12. [Reporting and Deployment](#orgeb66f31)
-13. [References](#orgc2b733a)
+1.  [Process](#org89293ab)
+2.  [Objectives](#org9868555)
+3.  [Data Collection](#org2c064aa)
+    1.  [Experimental Design](#orga1afb6d)
+4.  [Data Specification](#org09c28b3)
+    1.  [Determine Statistical Type](#org0592687)
+    2.  [Determine Roles](#org338d4e5)
+    3.  [Determine Validation Rules](#org00ccf7b)
+5.  [Data Correction](#org055c405)
+    1.  [String Correction](#org3e2bc5d)
+    2.  [Numeric Correction](#org4e17fa9)
+    3.  [Missing Correction](#org5859be8)
+6.  [Determine Model Validation Scheme](#orge67c772)
+7.  [Data Exploration](#orgf96834f)
+8.  [Establish Baseline Performance and Evaluation Metrics](#org9e3739f)
+9.  [Feature Engineering and Model Selection](#orgd0c65b8)
+10. [Training and Tuning](#org5d51fd2)
+11. [Model Evaluation](#org3df271b)
+12. [Model Interpretation](#org8a1f540)
+13. [Reporting and Deployment](#orgca485f4)
+14. [References](#org6f397a1)
 
 
 
-<a id="orga84d9db"></a>
+<a id="org89293ab"></a>
 
 # Process
 
 
-<a id="org01d91e3"></a>
+<a id="org9868555"></a>
 
 # Objectives
 
@@ -40,28 +41,32 @@ Determine Constraints. Do you want predictions? Does the model need to be interp
 Define success. How do you know you're done?
 
 
-<a id="orgb8f9904"></a>
+<a id="org2c064aa"></a>
 
 # Data Collection
+
+If possible, estimate how much data will be needed to satisfactorily meet the objectives. Alternatively (if more data collection is not possible), determine to what extent the data available will meet those objectives. (Sample size calculations).
 
 Collect the data in raw form, if not provided.
 
 
-<a id="orgc7a180e"></a>
+<a id="orga1afb6d"></a>
 
 ## Experimental Design
 
 Statistically optimal ways of collecting data. The mantra is: *To get the most from your experiments, reduce the variance.* (Good 2005) When data collection is expensive, try to do it in the best way possible. Can be used for computer simulations, too. Consider active learning if you need to label data.
 
 
-<a id="orgec6575a"></a>
+<a id="org09c28b3"></a>
 
 # Data Specification
 
-Determine what properties the data should have.
+Determine what properties the data *should* have. These properties should be part of the data validation process. Anything in the data that deviates from this specification needs to be corrected or otherwise addressed before modeling. *Garbage In, Garbage Out.*
+
+Determine what properties the data *does* have. These properties are assumptions we can make about the data by what it is supposed to represent (like whether a feature is numeric, categorical, etc.) or how it was collected (like whether it is an independent sample, identically distributed, etc.) These properties need to be addressed as part of the modeling process.
 
 
-<a id="org091b506"></a>
+<a id="org0592687"></a>
 
 ## Determine Statistical Type
 
@@ -76,7 +81,7 @@ Determine what properties the data should have.
 See [Statistical Data Type](https://en.wikipedia.org/wiki/Statistical_data_type) [Wikipedia]
 
 
-<a id="orgf087bca"></a>
+<a id="org338d4e5"></a>
 
 ## Determine Roles
 
@@ -86,14 +91,14 @@ See [Statistical Data Type](https://en.wikipedia.org/wiki/Statistical_data_type)
 -   Information
 
 
-<a id="org02aa625"></a>
+<a id="org00ccf7b"></a>
 
 ## Determine Validation Rules
 
 Specify what properties the data must have to be "clean". Domain knowledge is essential here.
 
 
-<a id="orga9f8c95"></a>
+<a id="org055c405"></a>
 
 # Data Correction
 
@@ -104,29 +109,36 @@ Many errors can be corrected through an automatic application of rules. For othe
 Correct observed data before imputing missing data.
 
 
-<a id="org939dca6"></a>
+<a id="org3e2bc5d"></a>
 
 ## String Correction
 
 
-<a id="orgfba8b3a"></a>
+<a id="org4e17fa9"></a>
 
 ## Numeric Correction
 
 
-<a id="org42b5553"></a>
+<a id="org5859be8"></a>
 
 ## Missing Correction
 
 
-<a id="orgf073b3d"></a>
+<a id="orge67c772"></a>
 
 # Determine Model Validation Scheme
 
 Decide on validation procedures (for feature engineering, performance, tuning, benchmarking) and make data splits.
 
 
-<a id="org750f50a"></a>
+<a id="orgf96834f"></a>
+
+# Data Exploration
+
+Consider various automated EDA tools. See "The Landscape of R Packages for Automated Exploratory Data Analysis" by Staniak and Biecek.
+
+
+<a id="org9e3739f"></a>
 
 # Establish Baseline Performance and Evaluation Metrics
 
@@ -141,7 +153,7 @@ see:
 -   [Setting Expectations](http://www.win-vector.com/blog/2012/04/setting-expectations-in-data-science-projects/) [Win-Vector blog]
 
 
-<a id="orgbe482f7"></a>
+<a id="orgd0c65b8"></a>
 
 # Feature Engineering and Model Selection
 
@@ -152,10 +164,11 @@ Understand how your data will interact with your algorithms. Be aware of:
 -   Factor encodings
 -   Outliers and robustness assumptions
 -   Missing data
--   Statistical assumptions (especially, normality and homoskedasticity)
+-   Statistical assumptions (eg, independence, identical distribution, normality, homoskedasticity)
 -   Sensitivity to scale
 -   High correlation
 -   Rank deficiency (linear dependence)
+-   Multicollinearity (ill conditioning)
 -   Noninformative features (regularization)
 -   Feature interactions and nonlinearity
 -   High dimensionality
@@ -174,6 +187,10 @@ Data Transforms:
 
 -   log transforms
 -   Box-Cox family
+-   interactions
+-   smoothing: splines, kernels
+-   factor encoding: dummy, response, thermometer, cyclic
+-   time-series embeddings
 
 Feature Selection:
 
@@ -184,7 +201,7 @@ Feature Selection:
 When you are transforming the data it is important to ask: Is the transformation data-dependent? Does it depend on the features? Does it depend on the response? If so, it ought to be part of a validation procedure. This is important to avoid overfitting. Independent transformations can be applied at will, however.
 
 
-<a id="orgf51ed2c"></a>
+<a id="org5d51fd2"></a>
 
 # Training and Tuning
 
@@ -193,7 +210,7 @@ Consider model aggregation methods: bagging, model averaging, ensembles, SuperLe
 If a particular statistic is of interest, consider Targeted Learning.
 
 
-<a id="org5c8369b"></a>
+<a id="org3df271b"></a>
 
 # Model Evaluation
 
@@ -212,25 +229,28 @@ see:
 -   [Is Your Model Going to Work?](http://www.win-vector.com/blog/2015/09/isyourmodelgoingtowork/) [Win-Vector blog]
 
 
-<a id="org97f16bd"></a>
+<a id="org8a1f540"></a>
 
 # Model Interpretation
 
 
-<a id="orgeb66f31"></a>
+<a id="orgca485f4"></a>
 
 # Reporting and Deployment
 
 
-<a id="orgc2b733a"></a>
+<a id="org6f397a1"></a>
 
 # References
 
 On process, see:
 
+-   [Byrne, C. *Development Workflow for Data Scientists.*](https://resources.github.com/downloads/development-workflows-data-scientists.pdf) [book]
 -   [Khun, M. *Applied Predictive Modeling*](http://appliedpredictivemodeling.com/) [book]
 -   [Mount, J., Zumel, N. *Practical Data Science with R*](http://www.win-vector.com/blog/practical-data-science-with-r/) [book]
 -   [DrWhy. *Model Development Process*](https://github.com/ModelOriented/DrWhy/blob/master/images/ModelDevelopmentProcess.pdf) [GitHub]
+-   [CRAN Task View: Project Workflows](https://jdblischak.github.io/ctv-project-workflows/)
+-   [CRAN Task View: Reproducible Research](https://cran.r-project.org/web/views/ReproducibleResearch.html)
 
 On data validation, see:
 
@@ -286,4 +306,9 @@ On statistics and mathematics, see:
 -   [Gallier, J., & Quaintance, J., *Algebra, Topology, Diﬀerential Calculus, and Optimization Theory For Computer Science and Machine Learning.*](https://www.cis.upenn.edu/~jean/gbooks/home.html) More advanced and more comprehensive. The first author has a number of other relevant textbooks on his website. [free book]
 -   [Pollard, D., *A user's guide to measure theoretic probability.*](https://www.cambridge.org/core/books/users-guide-to-measure-theoretic-probability/A257FE6572A9142FE3B811FFF3FD0171) A good introduction to measure theory, if you're into that sort of thing. [book]
 -   [Schervish, M. J., *Theory of Statistics.*](https://www.springer.com/gp/book/9780387945460) Like Casella with measure theory. [book]
+
+On graphics, see:
+
+-   Murrell, P. [*R Graphics.*](https://www.stat.auckland.ac.nz/~paul/RG2e/) [book]
+-   Hadley, W. [*ggplot2.*](https://ggplot2-book.org/) [free book]
 
