@@ -1,36 +1,36 @@
 
 # Table of Contents
 
-1.  [Process](#org89293ab)
-2.  [Objectives](#org9868555)
-3.  [Data Collection](#org2c064aa)
-    1.  [Experimental Design](#orga1afb6d)
-4.  [Data Specification](#org09c28b3)
-    1.  [Determine Statistical Type](#org0592687)
-    2.  [Determine Roles](#org338d4e5)
-    3.  [Determine Validation Rules](#org00ccf7b)
-5.  [Data Correction](#org055c405)
-    1.  [String Correction](#org3e2bc5d)
-    2.  [Numeric Correction](#org4e17fa9)
-    3.  [Missing Correction](#org5859be8)
-6.  [Determine Model Validation Scheme](#orge67c772)
-7.  [Data Exploration](#orgf96834f)
-8.  [Establish Baseline Performance and Evaluation Metrics](#org9e3739f)
-9.  [Feature Engineering and Model Selection](#orgd0c65b8)
-10. [Training and Tuning](#org5d51fd2)
-11. [Model Evaluation](#org3df271b)
-12. [Model Interpretation](#org8a1f540)
-13. [Reporting and Deployment](#orgca485f4)
-14. [References](#org6f397a1)
+1.  [Process](#org69a1e3d)
+2.  [Objectives](#org79f3ef8)
+3.  [Data Collection](#org34a6710)
+    1.  [Experimental Design](#orgbc01c9f)
+4.  [Data Specification](#orga6a94a9)
+    1.  [Determine Statistical Type](#org220bd8b)
+    2.  [Determine Roles](#orgaf0c613)
+    3.  [Determine Validation Rules](#orgb13c57e)
+5.  [Data Correction](#org590465c)
+    1.  [String Correction](#org00b49d5)
+    2.  [Numeric Correction](#org10fb3e5)
+    3.  [Missing Correction](#orgcd76782)
+6.  [Determine Model Validation Scheme](#org0c34b34)
+7.  [Data Exploration](#org34c929d)
+8.  [Establish Baseline Performance and Evaluation Metrics](#orgf28021a)
+9.  [Feature Engineering and Model Selection](#org7d63933)
+10. [Training and Tuning](#org2f8d58f)
+11. [Model Evaluation](#orge1a00ca)
+12. [Model Interpretation](#org5e265b1)
+13. [Reporting and Deployment](#orgf3c7ad1)
+14. [References](#org9f79916)
 
 
 
-<a id="org89293ab"></a>
+<a id="org69a1e3d"></a>
 
 # Process
 
 
-<a id="org9868555"></a>
+<a id="org79f3ef8"></a>
 
 # Objectives
 
@@ -41,7 +41,7 @@ Determine Constraints. Do you want predictions? Does the model need to be interp
 Define success. How do you know you're done?
 
 
-<a id="org2c064aa"></a>
+<a id="org34a6710"></a>
 
 # Data Collection
 
@@ -50,23 +50,25 @@ If possible, estimate how much data will be needed to satisfactorily meet the ob
 Collect the data in raw form, if not provided.
 
 
-<a id="orga1afb6d"></a>
+<a id="orgbc01c9f"></a>
 
 ## Experimental Design
 
 Statistically optimal ways of collecting data. The mantra is: *To get the most from your experiments, reduce the variance.* (Good 2005) When data collection is expensive, try to do it in the best way possible. Can be used for computer simulations, too. Consider active learning if you need to label data.
 
 
-<a id="org09c28b3"></a>
+<a id="orga6a94a9"></a>
 
 # Data Specification
 
-Determine what properties the data *should* have. These properties should be part of the data validation process. Anything in the data that deviates from this specification needs to be corrected or otherwise addressed before modeling. *Garbage In, Garbage Out.*
+What does *clean* data look like? These properties should be part of the data validation process. Anything in the data that deviates from this specification needs to be corrected or otherwise addressed before modeling. *Garbage In, Garbage Out.*
 
-Determine what properties the data *does* have. These properties are assumptions we can make about the data by what it is supposed to represent (like whether a feature is numeric, categorical, etc.) or how it was collected (like whether it is an independent sample, identically distributed, etc.) These properties need to be addressed as part of the modeling process.
+What are you assuming about the data? These properties are assumptions we make about the data by what it is supposed to represent (that is, the type and distribution of its corresponding population) or how it was collected (like whether it is an independent sample, identically distributed, etc.) These properties need to be addressed as part of the modeling process.
+
+If the data is collected as part of an ongoing process (like with stock prices, say), we need to be careful about *drift*. Distributions tend to change over time with changing conditions (*regime change*).
 
 
-<a id="org0592687"></a>
+<a id="org220bd8b"></a>
 
 ## Determine Statistical Type
 
@@ -81,7 +83,7 @@ Determine what properties the data *does* have. These properties are assumptions
 See [Statistical Data Type](https://en.wikipedia.org/wiki/Statistical_data_type) [Wikipedia]
 
 
-<a id="org338d4e5"></a>
+<a id="orgaf0c613"></a>
 
 ## Determine Roles
 
@@ -91,14 +93,14 @@ See [Statistical Data Type](https://en.wikipedia.org/wiki/Statistical_data_type)
 -   Information
 
 
-<a id="org00ccf7b"></a>
+<a id="orgb13c57e"></a>
 
 ## Determine Validation Rules
 
 Specify what properties the data must have to be "clean". Domain knowledge is essential here.
 
 
-<a id="org055c405"></a>
+<a id="org590465c"></a>
 
 # Data Correction
 
@@ -109,36 +111,36 @@ Many errors can be corrected through an automatic application of rules. For othe
 Correct observed data before imputing missing data.
 
 
-<a id="org3e2bc5d"></a>
+<a id="org00b49d5"></a>
 
 ## String Correction
 
 
-<a id="org4e17fa9"></a>
+<a id="org10fb3e5"></a>
 
 ## Numeric Correction
 
 
-<a id="org5859be8"></a>
+<a id="orgcd76782"></a>
 
 ## Missing Correction
 
 
-<a id="orge67c772"></a>
+<a id="org0c34b34"></a>
 
 # Determine Model Validation Scheme
 
 Decide on validation procedures (for feature engineering, performance, tuning, benchmarking) and make data splits.
 
 
-<a id="orgf96834f"></a>
+<a id="org34c929d"></a>
 
 # Data Exploration
 
 Consider various automated EDA tools. See "The Landscape of R Packages for Automated Exploratory Data Analysis" by Staniak and Biecek.
 
 
-<a id="org9e3739f"></a>
+<a id="orgf28021a"></a>
 
 # Establish Baseline Performance and Evaluation Metrics
 
@@ -147,13 +149,14 @@ Consider various automated EDA tools. See "The Landscape of R Packages for Autom
 -   Naive Bayes: naive lower bound
 -   Current Performance: practical lower bound
 -   Bayes Error Estimates: the upper bound of the data set (try estimating by resampling kNN)
+-   Other Complexity Estimates:
 
 see: 
 
 -   [Setting Expectations](http://www.win-vector.com/blog/2012/04/setting-expectations-in-data-science-projects/) [Win-Vector blog]
 
 
-<a id="orgd0c65b8"></a>
+<a id="org7d63933"></a>
 
 # Feature Engineering and Model Selection
 
@@ -201,7 +204,7 @@ Feature Selection:
 When you are transforming the data it is important to ask: Is the transformation data-dependent? Does it depend on the features? Does it depend on the response? If so, it ought to be part of a validation procedure. This is important to avoid overfitting. Independent transformations can be applied at will, however.
 
 
-<a id="org5d51fd2"></a>
+<a id="org2f8d58f"></a>
 
 # Training and Tuning
 
@@ -210,7 +213,7 @@ Consider model aggregation methods: bagging, model averaging, ensembles, SuperLe
 If a particular statistic is of interest, consider Targeted Learning.
 
 
-<a id="org3df271b"></a>
+<a id="orge1a00ca"></a>
 
 # Model Evaluation
 
@@ -229,17 +232,17 @@ see:
 -   [Is Your Model Going to Work?](http://www.win-vector.com/blog/2015/09/isyourmodelgoingtowork/) [Win-Vector blog]
 
 
-<a id="org8a1f540"></a>
+<a id="org5e265b1"></a>
 
 # Model Interpretation
 
 
-<a id="orgca485f4"></a>
+<a id="orgf3c7ad1"></a>
 
 # Reporting and Deployment
 
 
-<a id="org6f397a1"></a>
+<a id="org9f79916"></a>
 
 # References
 
@@ -251,6 +254,11 @@ On process, see:
 -   [DrWhy. *Model Development Process*](https://github.com/ModelOriented/DrWhy/blob/master/images/ModelDevelopmentProcess.pdf) [GitHub]
 -   [CRAN Task View: Project Workflows](https://jdblischak.github.io/ctv-project-workflows/)
 -   [CRAN Task View: Reproducible Research](https://cran.r-project.org/web/views/ReproducibleResearch.html)
+
+On infrastructure, see:
+
+-   [Production Level Deep Learning](https://github.com/alirezadir/Production-Level-Deep-Learning) [GitHub]
+-   [Michelangelo](https://eng.uber.com/michelangelo/) and [Scaling Michelangelo](https://eng.uber.com/scaling-michelangelo/) and [Data Science Workbench](https://eng.uber.com/dsw/) [Uber]
 
 On data validation, see:
 
